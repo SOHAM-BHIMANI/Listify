@@ -1,0 +1,176 @@
+from flask import Flask, render_template, request, redirect, url_for, session
+from cryptography.fernet import Fernet
+import json
+import os
+from functools import wraps
+from datetime import datetime
+
+app = Flask(__name__)
+app.secret_key = 'your-secret-key-here'  # Change this to a strong secret key
+
+# Load or generate encryption key
+def load_key():
+    try:
+        with open('key.key', 'rb') as key_file:
+            return key_file.read()
+    except FileNotFoundError:
+        key = Fernet.generate_key()
+        with open('key.key', 'wb') as key_file:
+            key_file.write(key)
+        return key
+
+fer = Fernet(load_key())
+
+# Decorator for user login
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# Decorator for admin login
+def admin_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session or session['username'] != 'admin':
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+# Load todos
+def load_todos():
+    try:
+        with open('todos.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return {}
+
+# Save todos
+def save_todos(todos):
+    with open('todos.json', 'w') as f:
+        json.dump(todos, f, indent=4)
+
+# Load users
+def load_users():
+    users = []
+    try:
+        with open('passwords.txt', 'r') as f:
+            for line in f:
+                username, encrypted_password = line.strip().split('|')
+                password = fer.decrypt(encrypted_password.encode()).decode()
+                users.append({'username': username, 'password': password})
+    except FileNotFoundError:
+        pass
+    return users
+
+@app.route('/')
+def home():
+    if 'username' in session:
+        if session['username'] == 'admin':
+            return redirect(url_for('admin_view'))
+        else:
+            return redirect(url_for('todo'))
+    return redirect(url_for('login'))
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    message = None
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        users = load_users()
+        for user in users:
+            if user['username'] == username and user['password'] == password:
+                session['username'] = username
+                if username == 'admin':
+                    return redirect(url_for('admin_view'))
+                return redirect(url_for('todo'))
+        message = 'Invalid username or password'
+    return render_template('login.html', message=message)
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    message = None
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+        confirm_password = request.form['confirm_password']
+        if password != confirm_password:
+            message = "Passwords do not match"
+            return render_template('register.html', message=message)
+        users = load_users()
+        if any(user['username'] == username for user in users):
+            message = "Username already exists"
+            return render_template('register.html', message=message)
+        encrypted_password = fer.encrypt(password.encode()).decode()
+        with open('passwords.txt', 'a') as f:
+            f.write(f"{username}|{encrypted_password}\n")
+        return redirect(url_for('login', message='Registration successful! Please login.'))
+    return render_template('register.html', message=message)
+
+@app.route('/todo')
+@login_required
+def todo():
+    username = session['username']
+    todos = load_todos()
+    user_todos = todos.get(username, [])
+    return render_template('todo.html', username=username, todos=user_todos)
+
+@app.route('/add_todo', methods=['POST'])
+@login_required
+def add_todo():
+    todos = load_todos()
+    username = session['username']
+    if username not in todos:
+        todos[username] = []
+    todo_text = request.form['todo']
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    new_todo = {
+        'text': todo_text,
+        'completed': False,
+        'created_at': current_time,
+        'last_modified': current_time,
+        'completed_at': None
+    }
+    todos[username].append(new_todo)
+    save_todos(todos)
+    return redirect(url_for('todo'))
+
+@app.route('/toggle_todo/<int:todo_id>', methods=['POST'])
+@login_required
+def toggle_todo(todo_id):
+    todos = load_todos()
+    username = session['username']
+    if username in todos and 0 <= todo_id < len(todos[username]):
+        todo = todos[username][todo_id]
+        todo['completed'] = not todo['completed']
+        todo['last_modified'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        todo['completed_at'] = datetime.now().strftime("%Y-%m-%d %H:%M:%S") if todo['completed'] else None
+        save_todos(todos)
+    return redirect(url_for('todo'))
+
+@app.route('/delete_todo/<int:todo_id>', methods=['POST'])
+@login_required
+def delete_todo(todo_id):
+    todos = load_todos()
+    username = session['username']
+    if username in todos and 0 <= todo_id < len(todos[username]):
+        todos[username].pop(todo_id)
+        save_todos(todos)
+    return redirect(url_for('todo'))
+
+@app.route('/admin')
+@admin_required
+def admin_view():
+    users = load_users()
+    return render_template('admin.html', users=users)
+
+@app.route('/logout')
+def logout():
+    session.pop('username', None)
+    return redirect(url_for('login'))
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))

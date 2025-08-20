@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Todo List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .todo-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .todo-form input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .logout {
+            background-color: #f44336;
+        }
+        .logout:hover {
+            background-color: #da190b;
+        }
+        .todo-list {
+            list-style: none;
+            padding: 0;
+        }
+        .todo-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .todo-content {
+            flex: 1;
+            margin-right: 15px;
+        }
+        .todo-text {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+        }
+        .todo-timestamps {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        .todo-timestamps small {
+            display: block;
+        }
+        .todo-item.completed {
+            background-color: #e8f5e9;
+            text-decoration: line-through;
+            color: #666;
+        }
+        .todo-actions {
+            display: flex;
+            gap: 5px;
+        }
+        .todo-actions button {
+            padding: 5px 10px;
+        }
+        .complete-btn {
+            background-color: #2196F3;
+        }
+        .complete-btn:hover {
+            background-color: #1976D2;
+        }
+        .delete-btn {
+            background-color: #f44336;
+        }
+        .delete-btn:hover {
+            background-color: #da190b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Welcome, {{ username }}!</h2>
+            <a href="{{ url_for('logout') }}"><button class="logout">Logout</button></a>
+        </div>
+        
+        <form class="todo-form" method="POST" action="{{ url_for('add_todo') }}">
+            <input type="text" name="todo" placeholder="Enter a new todo" required>
+            <button type="submit">Add Todo</button>
+        </form>
+
+        <ul class="todo-list">
+            {% for todo in todos %}
+            <li class="todo-item {% if todo.completed %}completed{% endif %}">
+                <div class="todo-content">
+                    <span class="todo-text">{{ todo.text }}</span>
+                    <div class="todo-timestamps">
+                        <small>Created: {{ todo.created_at }}</small>
+                        {% if todo.completed %}
+                        <small>Completed: {{ todo.completed_at }}</small>
+                        {% endif %}
+                        <small>Last modified: {{ todo.last_modified }}</small>
+                    </div>
+                </div>
+                <div class="todo-actions">
+                    <form method="POST" action="{{ url_for('toggle_todo', todo_id=loop.index0) }}" style="display: inline;">
+                        <button type="submit" class="complete-btn">
+                            {% if todo.completed %}Undo{% else %}Complete{% endif %}
+                        </button>
+                    </form>
+                    <form method="POST" action="{{ url_for('delete_todo', todo_id=loop.index0) }}" style="display: inline;">
+                        <button type="submit" class="delete-btn">Delete</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

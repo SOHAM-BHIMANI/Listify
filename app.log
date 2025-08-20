@@ -1,0 +1,104 @@
+2025-08-20 22:25:46,800 - WARNING -  * Debugger is active!
+2025-08-20 22:25:46,800 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:26:06,043 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:26:06,732 - WARNING -  * Debugger is active!
+2025-08-20 22:26:06,748 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:27:24,592 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:27:25,390 - WARNING -  * Debugger is active!
+2025-08-20 22:27:25,407 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:27:49,258 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-08-20 22:27:49,290 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-20 22:27:49,290 - INFO -  * Restarting with stat
+2025-08-20 22:27:49,824 - WARNING -  * Debugger is active!
+2025-08-20 22:27:49,824 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:29:13,797 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:13] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-20 22:29:14,077 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:14] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:29:16,241 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:16] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-20 22:29:16,566 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:16] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:29:24,002 - WARNING - Failed login attempt for user: soham
+2025-08-20 22:29:24,002 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:24] "POST /login HTTP/1.1" 200 -
+2025-08-20 22:29:31,408 - INFO - Successful login for user: soham
+2025-08-20 22:29:31,408 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:31] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 22:29:31,657 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:31] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:29:35,413 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:35] "[32mPOST /toggle_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:29:35,742 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:35] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:29:54,274 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:54] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-20 22:29:54,598 - INFO - 127.0.0.1 - - [20/Aug/2025 22:29:54] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:30:04,797 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:04] "GET /register HTTP/1.1" 200 -
+2025-08-20 22:30:18,023 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:18] "POST /register HTTP/1.1" 200 -
+2025-08-20 22:30:28,614 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:28] "POST /register HTTP/1.1" 200 -
+2025-08-20 22:30:42,824 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:42] "[32mPOST /register HTTP/1.1[0m" 302 -
+2025-08-20 22:30:43,085 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:43] "GET /login?message=Registration+successful!+Please+login. HTTP/1.1" 200 -
+2025-08-20 22:30:52,135 - INFO - Successful login for user: snehal
+2025-08-20 22:30:52,135 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:52] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 22:30:52,453 - INFO - 127.0.0.1 - - [20/Aug/2025 22:30:52] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:31:00,730 - INFO - 127.0.0.1 - - [20/Aug/2025 22:31:00] "[32mPOST /add_todo HTTP/1.1[0m" 302 -
+2025-08-20 22:31:01,056 - INFO - 127.0.0.1 - - [20/Aug/2025 22:31:01] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:32:27,458 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:27,458 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:27,529 - INFO -  * Restarting with stat
+2025-08-20 22:32:28,157 - WARNING -  * Debugger is active!
+2025-08-20 22:32:28,157 - WARNING -  * Debugger is active!
+2025-08-20 22:32:28,172 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:32:40,110 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:40,110 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:40,175 - INFO -  * Restarting with stat
+2025-08-20 22:32:40,741 - WARNING -  * Debugger is active!
+2025-08-20 22:32:40,741 - WARNING -  * Debugger is active!
+2025-08-20 22:32:40,741 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:32:40,741 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:32:54,741 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:54,749 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:32:54,810 - INFO -  * Restarting with stat
+2025-08-20 22:32:55,415 - WARNING -  * Debugger is active!
+2025-08-20 22:32:55,422 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:32:55,422 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:33:36,789 - INFO - 127.0.0.1 - - [20/Aug/2025 22:33:36] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-20 22:33:37,051 - INFO - 127.0.0.1 - - [20/Aug/2025 22:33:37] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:33:48,026 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:33:48,033 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:33:48,089 - INFO -  * Restarting with stat
+2025-08-20 22:33:48,694 - WARNING -  * Debugger is active!
+2025-08-20 22:33:48,694 - WARNING -  * Debugger is active!
+2025-08-20 22:33:48,702 - INFO -  * Debugger PIN: 927-892-061
+2025-08-20 22:34:19,889 - INFO - Successful login for user: soham
+2025-08-20 22:34:19,894 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:19] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 22:34:20,168 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:20] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:34:24,523 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:24] "[32mPOST /delete_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:34:24,859 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:24] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:34:51,032 - INFO - User soham added new todo: hello world at 2025-08-20 22:34:51
+2025-08-20 22:34:51,040 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:51] "[32mPOST /add_todo HTTP/1.1[0m" 302 -
+2025-08-20 22:34:51,289 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:51] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:34:56,797 - INFO - User soham marked todo "hello world" as completed at 2025-08-20 22:34:56
+2025-08-20 22:34:56,797 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:56] "[32mPOST /toggle_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:34:57,149 - INFO - 127.0.0.1 - - [20/Aug/2025 22:34:57] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:35:00,750 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:00] "[32mPOST /delete_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:35:01,067 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:01] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:35:03,193 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:03] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-20 22:35:03,532 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:03] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:35:05,601 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:05] "GET /register HTTP/1.1" 200 -
+2025-08-20 22:35:25,920 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:25] "POST /register HTTP/1.1" 200 -
+2025-08-20 22:35:58,853 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:58] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-20 22:35:59,167 - INFO - 127.0.0.1 - - [20/Aug/2025 22:35:59] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:36:06,665 - INFO - Successful login for user: soham
+2025-08-20 22:36:06,666 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:06] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 22:36:06,994 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:06] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:36:10,926 - INFO - User soham added new todo: hi at 2025-08-20 22:36:10
+2025-08-20 22:36:10,926 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:10] "[32mPOST /add_todo HTTP/1.1[0m" 302 -
+2025-08-20 22:36:11,239 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:11] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:36:13,257 - INFO - User soham marked todo "hi" as completed at 2025-08-20 22:36:13
+2025-08-20 22:36:13,257 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:13] "[32mPOST /toggle_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:36:13,582 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:13] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:36:26,661 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:26] "[32mPOST /delete_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:36:26,980 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:26] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:36:28,389 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:28] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-08-20 22:36:28,722 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:28] "GET /login HTTP/1.1" 200 -
+2025-08-20 22:36:59,044 - INFO - Successful login for user: snehal
+2025-08-20 22:36:59,045 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:59] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 22:36:59,355 - INFO - 127.0.0.1 - - [20/Aug/2025 22:36:59] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:37:01,844 - INFO - 127.0.0.1 - - [20/Aug/2025 22:37:01] "[32mPOST /delete_todo/0 HTTP/1.1[0m" 302 -
+2025-08-20 22:37:02,160 - INFO - 127.0.0.1 - - [20/Aug/2025 22:37:02] "GET /todo HTTP/1.1" 200 -
+2025-08-20 22:40:42,101 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:40:42,107 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
+2025-08-20 22:40:42,181 - INFO -  * Restarting with stat

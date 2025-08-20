@@ -102,3 +102,22 @@
 2025-08-20 22:40:42,101 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
 2025-08-20 22:40:42,107 - INFO -  * Detected change in 'D:\\python\\app.py', reloading
 2025-08-20 22:40:42,181 - INFO -  * Restarting with stat
+2025-08-20 23:33:29,115 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.109:5000
+2025-08-20 23:33:29,115 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-20 23:33:54,483 - INFO - 127.0.0.1 - - [20/Aug/2025 23:33:54] "[32mGET / HTTP/1.1[0m" 302 -
+2025-08-20 23:33:54,502 - INFO - 127.0.0.1 - - [20/Aug/2025 23:33:54] "GET /login HTTP/1.1" 200 -
+2025-08-20 23:33:54,571 - INFO - 127.0.0.1 - - [20/Aug/2025 23:33:54] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-08-20 23:37:02,826 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.109:5000
+2025-08-20 23:37:02,834 - INFO - [33mPress CTRL+C to quit[0m
+2025-08-20 23:37:16,345 - INFO - Successful login for user: soham
+2025-08-20 23:37:16,345 - INFO - 127.0.0.1 - - [20/Aug/2025 23:37:16] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-08-20 23:37:16,381 - INFO - 127.0.0.1 - - [20/Aug/2025 23:37:16] "GET /todo HTTP/1.1" 200 -
+2025-08-20 23:37:21,046 - INFO - User soham added new todo: hi at 2025-08-20 23:37:21
+2025-08-20 23:37:21,046 - INFO - 127.0.0.1 - - [20/Aug/2025 23:37:21] "[32mPOST /add_todo HTTP/1.1[0m" 302 -
+2025-08-20 23:37:21,061 - INFO - 127.0.0.1 - - [20/Aug/2025 23:37:21] "GET /todo HTTP/1.1" 200 -
